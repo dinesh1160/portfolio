@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dinesh A | Robotics Software Engineer</title>
+  <meta name="description"
+    content="Portfolio of Dinesh A — Robotics Software Engineer specializing in Computer Vision, Perception, and Physical AI." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    // Prevent FOUC: Set theme before DOM paints
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+         NAVIGATION
+    ═══════════════════════════════════════════════ -->
+  <header class="nav" id="top">
+    <div class="nav__logo">
+      <span class="nav__logo-mark"></span>
+      <span class="nav__logo-text">DINESH_A</span>
+    </div>
+    <nav class="nav__links" aria-label="Primary navigation">
+      <a href="#home" class="nav__link">Home</a>
+      <a href="#about" class="nav__link">About</a>
+      <a href="#building" class="nav__link">Building</a>
+      <a href="#skills" class="nav__link">Skills</a>
+      <a href="#certifications" class="nav__link">Certifications</a>
+      <a href="#contact" class="nav__link">Contact</a>
+      <a href="#resume" class="nav__link nav__link--resume">Resume</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <!-- Sun icon for light mode (visible when dark mode is active) -->
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <!-- Moon icon for dark mode (visible when light mode is active) -->
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </nav>
+    <button class="nav__hamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════════
+           HERO
+      ═══════════════════════════════════════════════ -->
+    <section class="hero" id="home">
+      <div class="hero__content">
+        <!-- Left: Text -->
+        <div class="hero__text">
+          <h2 class="hero__name glitch" data-text="DINESH ARUNACHALAM">DINESH ARUNACHALAM</h2>
+          <h4 class="hero__title glitch" data-text="Robotics Software Engineer" id="hero-title">Robotics Software
+            Engineer</h4>
+          <h5 class="hero__subtitle mono">Robotics&nbsp;•&nbsp;Computer
+            Vision&nbsp;•&nbsp;AI Agents&nbsp;•&nbsp;Physical AI</h5>
+          <p class="hero__bio">Building systems that help navigate the real world</p>
+          <div class="hero__cta">
+            <a href="#building" class="btn btn--solid">View Projects</a>
+            <a href="#contact" class="btn btn--outline">Get In Touch</a>
+          </div>
+        </div>
+
+        <!-- Right: Profile Picture -->
+        <div class="hero__image-wrap">
+          <img src="profilepicture.jpg" alt="Dinesh Arunachalam" class="hero__profile-img" />
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════
+           ABOUT
+      ═══════════════════════════════════════════════ -->
+    <section class="section" id="about">
+      <div class="section__header">
+        <div class="section__heading-wrap">
+          <div class="section__big-label section__big-label--white" aria-hidden="true">ABOUT</div>
+        </div>
+      </div>
+
+      <div class="about__layout">
+        <div class="about__column about__column--profile">
+          <div class="about__block">
+            <div class="about__copy">
+              <div class="panel about__bio-panel">
+                <div class="panel__header">
+                  <h3 class="panel__label">Profile</h3>
+                </div>
+                <p class="about__bio-text">
+                  I like building things that think, see, and occasionally save people from clicking the same button a
+                  hundred times. As a Computer Science and Engineering undergraduate specializing in Artificial
+                  Intelligence and Robotics, I'm passionate about creating intelligent systems that automate real-world
+                  problems. My interests range from Robot Perception, Computer Vision, and Physical AI to Agentic AI,
+                  RAG-based applications, and workflow automation. Whether it's teaching a robot to understand its
+                  environment or building AI systems that streamline everyday tasks, I'm always drawn to problems where
+                  software can make life a little smarter. I enjoy learning new technologies, experimenting with
+                  ambitious ideas, and turning them into practical, reliable engineering solutions.
+                </p>
+              </div>
+            </div>
+
+            <div class="about__gallery about__gallery--right" aria-label="Selected work gallery">
+              <div class="about__gallery-track">
+                <img src="image.png" class="about__gallery-image is-active" alt="Selected project showcase 1" />
+                <img src="image1.png" class="about__gallery-image" alt="Selected project showcase 2" />
+                <img src="image3.png" class="about__gallery-image" alt="Selected project showcase 3" />
+              </div>
+              <div class="about__gallery-meta">
+                <span class="mono dim">SELECTED_WORK</span>
+                <span class="about__gallery-counter mono dim">1 / 3</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about__column about__column--education">
+          <div class="about__block about__block--education">
+            <div class="about__gallery about__gallery--left" aria-label="Selected work gallery">
+              <div class="about__gallery-track">
+                <img src="image3.png" class="about__gallery-image is-active" alt="Selected project showcase 1" />
+                <img src="image.png" class="about__gallery-image" alt="Selected project showcase 2" />
+                <img src="image1.png" class="about__gallery-image" alt="Selected project showcase 3" />
+              </div>
+              <div class="about__gallery-meta">
+                <span class="mono dim">WORK_SNAPS</span>
+                <span class="about__gallery-counter mono dim">1 / 3</span>
+              </div>
+            </div>
+
+            <div class="about__copy">
+              <div class="panel about__bio-panel">
+                <div class="panel__header">
+                  <h3 class="panel__label">Beyond the Code</h3>
+                </div>
+                <p class="about__bio-text">
+                  I'm someone who loves creating and exploring new things. Sketching has been a
+                  long-time hobby of mine it started as a way to relax but turned into an obsession with observing
+                  details. I've always believed curiosity is reason enough to learn something new, which is why I
+                  finally picked up the ukulele and I also enjoy getting lost
+                  in a good book, discovering fresh perspectives, or simply following a random curiosity to see where it
+                  leads. Beyond the keyboard and robots, I'm someone who enjoys good conversations just as much as good
+                  ideas. Some begin over coffee, some over shared interests, and some completely by chance. I enjoy
+                  meeting new people, exchanging ideas, and finding inspiration in unexpected places. Whether we're
+                  talking
+                  about technology, travel, books, music, or life's wonderfully random moments, I'm always happy to
+                  listen, learn, and share a laugh because the best connections often begin with the simplest
+                  conversations.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════
+           THINGS I'M BUILDING
+      ═══════════════════════════════════════════════ -->
+    <section class="section" id="building">
+      <div class="section__header">
+        <div class="section__heading-wrap">
+          <div class="section__big-label" aria-hidden="true">WHAT I'M BUILDING</div>
+        </div>
+      </div>
+
+      <div class="projects__grid">
+
+        <!-- Project Card 1 -->
+        <article class="project-card">
+          <div class="project-card__header">
+            <span class="mono dim">REF#001 // PERCEPTION</span>
+            <span class="status status--inprogress">ONGOING</span>
+          </div>
+          <h3 class="project-card__title">Real-Time Monocular Bird's-Eye View (BEV) Navigation</h3>
+          <p class="project-card__desc">
+            Built an end-to-end perception pipeline that transforms live monocular camera streams from a mobile robot
+            into a real-time semantic Bird's-Eye-View (BEV) map for indoor navigation. The system combines monocular
+            depth estimation, semantic segmentation, 3D geometric projection, and semantic occupancy mapping to generate
+            an environment-aware top-down representation that supports autonomous navigation and obstacle avoidance
+            without requiring LiDAR or RGB-D sensors.
+          </p>
+          <div class="project-card__stack">
+            <span class="tag tag--mono">ROS2</span>
+            <span class="tag tag--mono">OpenCV</span>
+            <span class="tag tag--mono">PyTorch</span>
+            <span class="tag tag--mono">Depth Anything V2</span>
+            <span class="tag tag--mono">SegFormer</span>
+            <span class="tag tag--mono">PCL</span>
+            <span class="tag tag--mono">TensorRT</span>
+            <span class="tag tag--mono">RViz2</span>
+            <span class="tag tag--mono">Nav2</span>
+            <span class="tag tag--mono">C++</span>
+          </div>
+          <div class="project-card__links">
+            <a href="#" class="project-link mono">GITHUB_REPO</a>
+            <a href="#" class="project-link mono">VIEW_DEMO</a>
+            <a href="#" class="project-link mono">DOCS</a>
+          </div>
+        </article>
+
+        <!-- Project Card 2 -->
+        <article class="project-card">
+          <div class="project-card__header">
+            <span class="mono dim">REF#002 // AI_AGENTS</span>
+            <span class="status status--complete">COMPLETE</span>
+          </div>
+          <h3 class="project-card__title">GitHub Intelligence Agent</h3>
+          <p class="project-card__desc">
+            An advanced AI workflow automation system that bridges the live GitHub REST API to large language models
+            using the Model Context Protocol (MCP). It utilizes LangGraph multi-agent orchestration to dynamically route
+            user intents for issue triage and repository analysis, enforcing Human-in-the-Loop (HITL) guardrails for
+            secure execution. This system streamlines operational complexity and allows external systems to discover its
+            capabilities via Agent-to-Agent (A2A) cards without exposing internal architecture.
+          </p>
+          <div class="project-card__stack">
+            <span class="tag tag--mono">MCP</span>
+            <span class="tag tag--mono">LangGraph</span>
+            <span class="tag tag--mono">Python</span>
+            <span class="tag tag--mono">Ollama</span>
+            <span class="tag tag--mono">GitHub REST API</span>
+            <span class="tag tag--mono">FastAPI</span>
+            <span class="tag tag--mono">Pydantic</span>
+          </div>
+          <div class="project-card__links">
+            <a href="#" class="project-link mono">GITHUB_REPO</a>
+            <a href="#" class="project-link mono">VIEW_DEMO</a>
+            <a href="#" class="project-link mono">DOCS</a>
+          </div>
+        </article>
+
+        <!-- Project Card 3 -->
+        <article class="project-card">
+          <div class="project-card__header">
+            <span class="mono dim">REF#003 // PATENT</span>
+            <span class="status status--complete">COMPLETE</span>
+          </div>
+          <h3 class="project-card__title">Proximity-Activated Audio Product Labels</h3>
+          <p class="project-card__desc">
+            This patent-pending accessibility system provides visually impaired users with hands-free audio
+            announcements about retail products, completely eliminating the need for smartphone apps or physical barcode
+            scanning. By leveraging Wi-Fi beacon proximity detection and RSSI threshold algorithms, the device
+            accurately triggers real-time, synchronized audio and visual information when a user enters a 1–2 meter
+            range. This creates a more independent, accessible, and seamless shopping experience without relying on
+            traditional visual cues.
+          </p>
+          <div class="project-card__stack">
+            <span class="tag tag--mono">ESP32 & FreeRTOS</span>
+            <span class="tag tag--mono">Hardware Integration (I2C OLED, DAC, LM386)</span>
+            <span class="tag tag--mono">Wi-Fi Proximity Detection & RSSI Algorithms</span>
+          </div>
+          <div class="project-card__links">
+            <a href="#" class="project-link mono">GITHUB_REPO</a>
+            <a href="#" class="project-link mono">PAPER</a>
+            <a href="#" class="project-link mono">POSTER</a>
+          </div>
+        </article>
+
+        <!-- Project Card 4 -->
+        <article class="project-card">
+          <div class="project-card__header">
+            <span class="mono dim">REF#004 // SECURITY</span>
+            <span class="status status--complete">COMPLETE</span>
+          </div>
+          <h3 class="project-card__title">Zero-Trust Encrypted File Sharing System</h3>
+          <p class="project-card__desc">
+            This Zero Trust file-sharing system ensures absolute data privacy by enforcing strict client-side hybrid
+            encryption (AES-GCM and X25519) so the backend infrastructure acts merely as an untrusted registry.
+            Utilizing a robust cryptographic identity pipeline with SHA-256 hashes and Ed25519 signatures, the system
+            enables secure, multi-user sharing. It guarantees that the server never has access to plaintext data or
+            private keys, providing true end-to-end security without reliance on backend trust.
+          </p>
+          <div class="project-card__stack">
+            <span class="tag tag--mono">React & Go (Gin)</span>
+            <span class="tag tag--mono">libsodium</span>
+            <span class="tag tag--mono">SQLite</span>
+          </div>
+          <div class="project-card__links">
+            <a href="#" class="project-link mono">GITHUB_REPO</a>
+            <a href="#" class="project-link mono">VIEW_DEMO</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+
+
+    <!-- ═══════════════════════════════════════════════
+           SKILLS
+      ═══════════════════════════════════════════════ -->
+    <section class="section" id="skills">
+      <div class="section__header">
+        <div class="section__heading-wrap">
+          <div class="section__big-label" aria-hidden="true">SKILLS</div>
+        </div>
+      </div>
+      <div class="skills-layout" style="display: flex; flex-direction: column; gap: 40px; padding: 24px 0;">
+
+        <div class="skills-row" style="display: flex; flex-wrap: wrap; gap: 32px;">
+          <div class="skills-row__category mono dim"
+            style="width: 220px; flex-shrink: 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 6px;">
+            Programming Languages
+          </div>
+          <div class="tag-cloud" style="flex: 1; min-width: 300px;">
+            <span class="tag tag--solid">C/C++</span>
+            <span class="tag tag--solid">PYTHON</span>
+            <span class="tag tag--solid">GO</span>
+            <span class="tag tag--solid">JAVASCRIPT</span>
+            <span class="tag tag--solid">SQL</span>
+            <span class="tag tag--solid">C#</span>
+          </div>
+        </div>
+
+        <div class="skills-row" style="display: flex; flex-wrap: wrap; gap: 32px;">
+          <div class="skills-row__category mono dim"
+            style="width: 220px; flex-shrink: 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 6px;">
+            AI & Robotics
+          </div>
+          <div class="tag-cloud" style="flex: 1; min-width: 300px;">
+            <span class="tag tag--solid">OPENCV</span>
+            <span class="tag tag--solid">ROS 2</span>
+            <span class="tag tag--solid">NVIDIA ISAAC SIM</span>
+            <span class="tag tag--solid">GAZEBO</span>
+            <span class="tag tag--solid">YOLO</span>
+            <span class="tag tag--solid">TENSORRT</span>
+            <span class="tag tag--solid">RVIZ2</span>
+            <span class="tag tag--solid">MOVEIT2</span>
+            <span class="tag tag--solid">CAMERA CALIBRATION</span>
+            <span class="tag tag--solid">POSE ESTIMATION</span>
+            <span class="tag tag--solid">DEPTH ANYTHING V2</span>
+            <span class="tag tag--solid">SEGFORMER</span>
+            <span class="tag tag--solid">PCL</span>
+          </div>
+        </div>
+
+        <div class="skills-row" style="display: flex; flex-wrap: wrap; gap: 32px;">
+          <div class="skills-row__category mono dim"
+            style="width: 220px; flex-shrink: 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 6px;">
+            Software & Backend
+          </div>
+          <div class="tag-cloud" style="flex: 1; min-width: 300px;">
+            <span class="tag tag--solid">OOP</span>
+            <span class="tag tag--solid">DSA</span>
+            <span class="tag tag--solid">REST APIS</span>
+            <span class="tag tag--solid">FLASK</span>
+            <span class="tag tag--solid">NODE.JS</span>
+            <span class="tag tag--solid">NEXT.JS</span>
+            <span class="tag tag--solid">API INTEGRATION</span>
+            <span class="tag tag--solid">MULTITHREADING</span>
+          </div>
+        </div>
+
+        <div class="skills-row" style="display: flex; flex-wrap: wrap; gap: 32px;">
+          <div class="skills-row__category mono dim"
+            style="width: 220px; flex-shrink: 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 6px;">
+            AI Frameworks
+          </div>
+          <div class="tag-cloud" style="flex: 1; min-width: 300px;">
+            <span class="tag tag--solid">LANGGRAPH</span>
+            <span class="tag tag--solid">MCP</span>
+            <span class="tag tag--solid">LLMS</span>
+            <span class="tag tag--solid">RAG</span>
+          </div>
+        </div>
+
+        <div class="skills-row" style="display: flex; flex-wrap: wrap; gap: 32px;">
+          <div class="skills-row__category mono dim"
+            style="width: 220px; flex-shrink: 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 6px;">
+            Developer Tools
+          </div>
+          <div class="tag-cloud" style="flex: 1; min-width: 300px;">
+            <span class="tag tag--solid">GIT</span>
+            <span class="tag tag--solid">GITHUB</span>
+            <span class="tag tag--solid">LINUX</span>
+            <span class="tag tag--solid">DOCKER</span>
+            <span class="tag tag--solid">CMAKE</span>
+            <span class="tag tag--solid">JIRA</span>
+            <span class="tag tag--solid">CONFLUENCE</span>
+            <span class="tag tag--solid">TRELLO</span>
+            <span class="tag tag--solid">VERCEL</span>
+          </div>
+        </div>
+
+        <div class="skills-row" style="display: flex; flex-wrap: wrap; gap: 32px;">
+          <div class="skills-row__category mono dim"
+            style="width: 220px; flex-shrink: 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 6px;">
+            Game Engines
+          </div>
+          <div class="tag-cloud" style="flex: 1; min-width: 300px;">
+            <span class="tag tag--solid">UNITY</span>
+            <span class="tag tag--solid">UNREAL ENGINE</span>
+            <span class="tag tag--solid">GODOT</span>
+          </div>
+        </div>
+
+        <div class="skills-row" style="display: flex; flex-wrap: wrap; gap: 32px;">
+          <div class="skills-row__category mono dim"
+            style="width: 220px; flex-shrink: 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 6px;">
+            Relevant Coursework
+          </div>
+          <div class="tag-cloud" style="flex: 1; min-width: 300px;">
+            <span class="tag tag--solid">ROBOT KINEMATICS & DYNAMICS</span>
+            <span class="tag tag--solid">CONTROL THEORY</span>
+            <span class="tag tag--solid">ROBOTICS PERCEPTION</span>
+            <span class="tag tag--solid">ARTIFICIAL INTELLIGENCE</span>
+            <span class="tag tag--solid">MACHINE LEARNING</span>
+            <span class="tag tag--solid">LINEAR ALGEBRA & MULTIVARIABLE CALCULUS</span>
+            <span class="tag tag--solid">ROBOT PROCESS AUTOMATION (RPA)</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════
+           CERTIFICATIONS
+      ═══════════════════════════════════════════════ -->
+    <section class="section" id="certifications">
+      <div class="section__header">
+        <div class="section__heading-wrap">
+          <div class="section__big-label" aria-hidden="true">CERTIFICATIONS</div>
+        </div>
+      </div>
+
+      <div class="certs__grid">
+
+        <!-- Cert Card 1 -->
+        <article class="cert-card panel">
+          <div class="cert-card__header">
+            <span class="mono dim">CERT_001 // AGENTIC AI</span>
+            <span class="cert-card__badge mono">VERIFIED</span>
+          </div>
+          <h3 class="cert-card__title">IBM Agentic AI</h3>
+          <table class="data-table">
+            <tr>
+              <td class="mono dim">ISSUER</td>
+              <td>IBM</td>
+            </tr>
+          </table>
+          <div class="cert-card__footer">
+            <a href="https://courses.ibmcep.cognitiveclass.ai/certificates/d62cbc5eadee430f8d40c2d1bb803c7e"
+              target="_blank" rel="noopener" class="project-link mono">VERIFY_CREDENTIAL ↗</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════════
+           CONTACT
+      ═══════════════════════════════════════════════ -->
+    <section class="section" id="contact">
+      <div class="section__header">
+        <div class="section__heading-wrap">
+          <div class="section__big-label" aria-hidden="true">CONTACT</div>
+        </div>
+      </div>
+
+      <div class="contact__links">
+
+        <a href="https://www.linkedin.com/in/dinesh-a-0b7902293/" target="_blank" rel="noopener"
+          class="contact-card panel">
+          <div class="contact-card__meta">
+            <span class="mono dim">UPLINK_01 // PROFESSIONAL_NETWORK</span>
+            <span class="contact-card__arrow">↗</span>
+          </div>
+          <p class="panel__label mono">LINKEDIN</p>
+          <p class="contact-card__handle">dinesh-a-0b7902293</p>
+        </a>
+
+        <a href="https://github.com/dinesh1160" target="_blank" rel="noopener" class="contact-card panel">
+          <div class="contact-card__meta">
+            <span class="mono dim">UPLINK_02 // CODE_REPOSITORY</span>
+            <span class="contact-card__arrow">↗</span>
+          </div>
+          <p class="panel__label mono">GITHUB</p>
+          <p class="contact-card__handle">dinesh1160</p>
+        </a>
+
+        <a href="mailto:work.dinesh116@gmail.com" class="contact-card panel">
+          <div class="contact-card__meta">
+            <span class="mono dim">UPLINK_03 // DIRECT_COMMS</span>
+            <span class="contact-card__arrow">↗</span>
+          </div>
+          <p class="panel__label mono">EMAIL</p>
+          <p class="contact-card__handle">work.dinesh116@gmail.com</p>
+        </a>
+
+        <a href="https://drive.google.com/file/d/1TRtZtPS5oEaxSE2J5OmpmGeHRhiVGH1l/view?usp=sharing" target="_blank"
+          rel="noopener" class="contact-card panel">
+          <div class="contact-card__meta">
+            <span class="mono dim">UPLINK_04 // CURRICULUM_VITAE</span>
+            <span class="contact-card__arrow">↓</span>
+          </div>
+          <p class="panel__label mono">RESUME</p>
+          <p class="contact-card__handle">resume.pdf</p>
+        </a>
+
+      </div>
+    </section>
+
+
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="footer" style="padding: 24px 5vw; border-top: 1px solid var(--bg-border);">
+
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px;">
+
+      <div>
+        <p class="mono dim"
+          style="margin-bottom: 4px; font-size: 0.65rem; letter-spacing: 0.05em; text-transform: uppercase;">MOTTO</p>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span
+            style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: #00d287;"></span>
+          <p style="margin: 0; font-size: 0.85rem; color: var(--text-primary);">Creating Things That Think, See, and
+            Solve.</p>
+        </div>
+      </div>
+
+      <div>
+        <p class="mono dim"
+          style="margin-bottom: 4px; font-size: 0.65rem; letter-spacing: 0.05em; text-transform: uppercase;">CONTACT</p>
+        <a href="mailto:work.dinesh116@gmail.com"
+          style="color: var(--text-primary); font-size: 0.85rem; text-decoration: none;">work.dinesh116@gmail.com</a>
+      </div>
+
+      <div>
+        <p class="mono dim"
+          style="margin-bottom: 4px; font-size: 0.65rem; letter-spacing: 0.05em; text-transform: uppercase;">LINKS</p>
+        <div style="display: flex; gap: 12px; font-size: 0.85rem; color: var(--text-primary); align-items: center;">
+          <a href="https://drive.google.com/file/d/1TRtZtPS5oEaxSE2J5OmpmGeHRhiVGH1l/view?usp=sharing" target="_blank"
+            rel="noopener" style="color: inherit; text-decoration: none;">Resume ↗</a>
+          <span style="color: var(--bg-border); font-size: 0.4rem;">●</span>
+          <a href="https://github.com/dinesh1160" target="_blank" rel="noopener"
+            style="color: inherit; text-decoration: none;">GitHub ↗</a>
+          <span style="color: var(--bg-border); font-size: 0.4rem;">●</span>
+          <a href="https://www.linkedin.com/in/dinesh-a-0b7902293/" target="_blank" rel="noopener"
+            style="color: inherit; text-decoration: none;">LinkedIn ↗</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top: 16px; color: var(--text-dim); font-size: 0.7rem; display: flex; gap: 16px;">
+
+      <span>©2026 Dinesh Arunachalam</span>
+    </div>
+
+  </footer>
+  <script src="main.js"></script>
+</body>
+
+</html>
