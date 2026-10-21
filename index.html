@@ -4,602 +4,523 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dinesh A | Robotics Software Engineer</title>
+  <title>Dinesh Arunachalam | Robotics Software Engineer</title>
   <meta name="description"
-    content="Portfolio of Dinesh A — Robotics Software Engineer specializing in Computer Vision, Perception, and Physical AI." />
+    content="Dinesh Arunachalam: robotics software engineer working on perception, navigation and embedded systems with ROS 2." />
+  <meta property="og:title" content="Dinesh Arunachalam | Robotics Software Engineer" />
+  <meta property="og:description"
+    content="Perception, navigation and embedded systems for real robots. ROS 2, OpenCV, C++, Python." />
+  <meta property="og:type" content="website" />
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230055ff'/%3E%3Cpath d='M9 9h8a7 7 0 0 1 0 14H9z' fill='none' stroke='white' stroke-width='3'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script>
-    // Prevent FOUC: Set theme before DOM paints
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    }
+    // Apply a saved theme before first paint; otherwise the OS preference applies via CSS.
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
+    } catch (e) { }
   </script>
 </head>
 
 <body>
 
-  <!-- ═══════════════════════════════════════════════
-         NAVIGATION
-    ═══════════════════════════════════════════════ -->
-  <header class="nav" id="top">
-    <div class="nav__logo">
-      <span class="nav__logo-mark"></span>
-      <span class="nav__logo-text">DINESH_A</span>
+  <!-- ── Navigation ─────────────────────────────────────────────── -->
+  <header class="nav">
+    <div class="nav__inner container">
+      <a href="#home" class="nav__logo" aria-label="Back to top">
+        <span class="nav__logo-mark" aria-hidden="true">DA</span>
+        <span class="nav__logo-text mono">dinesh_a</span>
+      </a>
+
+      <nav class="nav__links" id="nav-links" aria-label="Primary">
+        <a href="#about" class="nav__link">About</a>
+        <a href="#experience" class="nav__link">Experience</a>
+        <a href="#projects" class="nav__link">Projects</a>
+        <a href="#skills" class="nav__link">Skills</a>
+        <a href="#contact" class="nav__link">Contact</a>
+        <a href="assets/Dinesh_Arunachalam_Resume.pdf" target="_blank" rel="noopener"
+          class="btn btn--outline btn--sm">Resume</a>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="icon-btn" id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.5" />
+            <path d="M12 1.5v2.5M12 20v2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M1.5 12H4M20 12h2.5M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8" />
+          </svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+          </svg>
+        </button>
+        <button class="icon-btn nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span>
+        </button>
+      </div>
     </div>
-    <nav class="nav__links" aria-label="Primary navigation">
-      <a href="#home" class="nav__link">Home</a>
-      <a href="#about" class="nav__link">About</a>
-      <a href="#building" class="nav__link">Building</a>
-      <a href="#skills" class="nav__link">Skills</a>
-      <a href="#certifications" class="nav__link">Certifications</a>
-      <a href="#contact" class="nav__link">Contact</a>
-      <a href="assets/Dinesh_Arunachalam_Resume.pdf" target="_blank" rel="noopener" class="nav__link nav__link--resume">Resume</a>
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-        <!-- Sun icon for light mode (visible when dark mode is active) -->
-        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="5"></circle>
-          <line x1="12" y1="1" x2="12" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="23"></line>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-          <line x1="1" y1="12" x2="3" y2="12"></line>
-          <line x1="21" y1="12" x2="23" y2="12"></line>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-        <!-- Moon icon for dark mode (visible when light mode is active) -->
-        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-      </button>
-    </nav>
-    <button class="nav__hamburger" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
   </header>
 
   <main>
 
-    <!-- ═══════════════════════════════════════════════
-           HERO
-      ═══════════════════════════════════════════════ -->
+    <!-- ── Hero ─────────────────────────────────────────────────── -->
     <section class="hero" id="home">
-      <div class="hero__content">
-        <!-- Left: Text -->
+      <div class="hero__inner container">
         <div class="hero__text">
-          <h2 class="hero__name glitch" data-text="DINESH ARUNACHALAM">DINESH ARUNACHALAM</h2>
-          <h4 class="hero__title glitch" data-text="Robotics Software Engineer" id="hero-title">Robotics Software
-            Engineer</h4>
-          <h5 class="hero__subtitle mono">Robotics&nbsp;•&nbsp;Computer
-            Vision&nbsp;•&nbsp;AI Agents&nbsp;•&nbsp;Physical AI</h5>
-          <p class="hero__bio">Building systems that help navigate the real world</p>
+          <p class="chip"><span class="chip__dot" aria-hidden="true"></span>Open to robotics software roles</p>
+          <h1 class="hero__name">Dinesh Arunachalam</h1>
+          <p class="hero__role">Robotics Software Engineer</p>
+          <p class="hero__lede">
+            I build perception and navigation software for robots: camera-only bird's-eye-view mapping, persistent
+            object memory in ROS&nbsp;2, and firmware that connects sensors to robot arms.
+          </p>
+          <ul class="hero__focus mono" aria-label="Focus areas">
+            <li>ROS 2</li>
+            <li>Perception</li>
+            <li>Navigation</li>
+            <li>Embedded</li>
+          </ul>
           <div class="hero__cta">
-            <a href="#building" class="btn btn--solid">View Projects</a>
-            <a href="#contact" class="btn btn--outline">Get In Touch</a>
+            <a href="#projects" class="btn btn--solid">View projects</a>
+            <a href="assets/Dinesh_Arunachalam_Resume.pdf" target="_blank" rel="noopener"
+              class="btn btn--outline">Download resume</a>
           </div>
         </div>
 
-        <!-- Right: Profile Picture -->
-        <div class="hero__image-wrap">
-          <img src="profilepicture.jpg" alt="Dinesh Arunachalam" class="hero__profile-img" />
-        </div>
+        <figure class="viewport frame" aria-hidden="true">
+          <canvas class="viewport__canvas" id="scan-canvas"></canvas>
+          <figcaption class="viewport__hud viewport__hud--top mono">
+            <span>/scan</span><span>frame: odom</span>
+          </figcaption>
+          <div class="viewport__hud viewport__hud--bottom mono">
+            <span class="viewport__live">LIVE</span><span>occupancy · 0.05&nbsp;m</span>
+          </div>
+        </figure>
       </div>
     </section>
 
-
-    <!-- ═══════════════════════════════════════════════
-           ABOUT
-      ═══════════════════════════════════════════════ -->
+    <!-- ── About ────────────────────────────────────────────────── -->
     <section class="section" id="about">
-      <div class="section__header">
-        <div class="section__heading-wrap">
-          <div class="section__big-label section__big-label--white" aria-hidden="true">ABOUT</div>
-        </div>
-      </div>
+      <div class="container about">
+        <figure class="about__photo frame">
+          <img src="assets/img/profile.jpg" alt="Portrait of Dinesh Arunachalam" width="960" height="1280"
+            loading="lazy" />
+        </figure>
 
-      <div class="about__layout">
-        <div class="about__column about__column--profile">
-          <div class="about__block">
-            <div class="about__copy">
-              <div class="panel about__bio-panel">
-                <div class="panel__header">
-                  <h3 class="panel__label">Profile</h3>
-                </div>
-                <p class="about__bio-text">
-                  I like building things that think, see, and occasionally save people from clicking the same button a
-                  hundred times. As a Computer Science and Engineering undergraduate specializing in Artificial
-                  Intelligence and Robotics, I'm passionate about creating intelligent systems that automate real-world
-                  problems. My interests range from Robot Perception, Computer Vision, and Physical AI to Agentic AI,
-                  RAG-based applications, and workflow automation. Whether it's teaching a robot to understand its
-                  environment or building AI systems that streamline everyday tasks, I'm always drawn to problems where
-                  software can make life a little smarter. I enjoy learning new technologies, experimenting with
-                  ambitious ideas, and turning them into practical, reliable engineering solutions.
-                </p>
-              </div>
-            </div>
+        <div class="about__body">
+          <header class="section__head">
+            <p class="eyebrow mono">01 · About</p>
+            <h2 class="section__title">Software for robots that work outside the lab demo.</h2>
+          </header>
+          <p>
+            I'm a Computer Science and Engineering undergraduate at VIT Chennai, specializing in AI and Robotics. My
+            work sits where software meets hardware: perception pipelines on physical rovers, ROS&nbsp;2 middleware,
+            ESP32 firmware and custom PCBs, and simulation in Gazebo and Isaac Sim for validation.
+          </p>
+          <p>
+            I'm most interested in problems where a robot has to understand its surroundings and act on them reliably.
+            Away from the keyboard I sketch, play the ukulele and read.
+          </p>
 
-            <div class="about__gallery about__gallery--right" aria-label="Selected work gallery">
-              <div class="about__gallery-track">
-                <img src="image.png" class="about__gallery-image is-active" alt="Selected project showcase 1" />
-                <img src="image1.png" class="about__gallery-image" alt="Selected project showcase 2" />
-                <img src="image3.png" class="about__gallery-image" alt="Selected project showcase 3" />
-              </div>
-              <div class="about__gallery-meta">
-                <span class="mono dim">SELECTED_WORK</span>
-                <span class="about__gallery-counter mono dim">1 / 3</span>
-              </div>
+          <dl class="facts">
+            <div class="facts__row">
+              <dt class="mono">Based in</dt>
+              <dd>Chennai, India</dd>
             </div>
-          </div>
-        </div>
-
-        <div class="about__column about__column--education">
-          <div class="about__block about__block--education">
-            <div class="about__gallery about__gallery--left" aria-label="Selected work gallery">
-              <div class="about__gallery-track">
-                <img src="image3.png" class="about__gallery-image is-active" alt="Selected project showcase 1" />
-                <img src="image.png" class="about__gallery-image" alt="Selected project showcase 2" />
-                <img src="image1.png" class="about__gallery-image" alt="Selected project showcase 3" />
-              </div>
-              <div class="about__gallery-meta">
-                <span class="mono dim">WORK_SNAPS</span>
-                <span class="about__gallery-counter mono dim">1 / 3</span>
-              </div>
+            <div class="facts__row">
+              <dt class="mono">Studying</dt>
+              <dd>B.Tech CSE (AI &amp; Robotics), VIT</dd>
             </div>
-
-            <div class="about__copy">
-              <div class="panel about__bio-panel">
-                <div class="panel__header">
-                  <h3 class="panel__label">Beyond the Code</h3>
-                </div>
-                <p class="about__bio-text">
-                  I'm someone who loves creating and exploring new things. Sketching has been a
-                  long-time hobby of mine it started as a way to relax but turned into an obsession with observing
-                  details. I've always believed curiosity is reason enough to learn something new, which is why I
-                  finally picked up the ukulele and I also enjoy getting lost
-                  in a good book, discovering fresh perspectives, or simply following a random curiosity to see where it
-                  leads. Beyond the keyboard and robots, I'm someone who enjoys good conversations just as much as good
-                  ideas. Some begin over coffee, some over shared interests, and some completely by chance. I enjoy
-                  meeting new people, exchanging ideas, and finding inspiration in unexpected places. Whether we're
-                  talking
-                  about technology, travel, books, music, or life's wonderfully random moments, I'm always happy to
-                  listen, learn, and share a laugh because the best connections often begin with the simplest
-                  conversations.
-                </p>
-              </div>
+            <div class="facts__row">
+              <dt class="mono">Graduating</dt>
+              <dd>May 2027</dd>
             </div>
-          </div>
+            <div class="facts__row">
+              <dt class="mono">Focus</dt>
+              <dd>Perception, navigation, embedded systems</dd>
+            </div>
+          </dl>
         </div>
       </div>
     </section>
 
+    <!-- ── Experience ───────────────────────────────────────────── -->
+    <section class="section" id="experience">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow mono">02 · Experience</p>
+          <h2 class="section__title">Experience &amp; education</h2>
+        </header>
 
-    <!-- ═══════════════════════════════════════════════
-           THINGS I'M BUILDING
-      ═══════════════════════════════════════════════ -->
-    <section class="section" id="building">
-      <div class="section__header">
-        <div class="section__heading-wrap">
-          <div class="section__big-label" aria-hidden="true">WHAT I'M BUILDING</div>
-        </div>
-      </div>
+        <ol class="timeline">
+          <li class="timeline__item">
+            <p class="timeline__date mono">Feb 2026 – Apr 2026</p>
+            <div class="timeline__body card">
+              <h3 class="timeline__title">Robotics Software Engineer (Intern)</h3>
+              <p class="timeline__org">Sentrix Robotics · Chennai <span class="muted">· Physical AI startup for
+                  robotic dexterity</span></p>
+              <ul class="bullets">
+                <li>Integrated a motion-capture glove with a robotic arm for precise, real-time teleoperation.</li>
+                <li>Developed C++ firmware on ESP32-C6 and ROS&nbsp;2 middleware over serial, mapping 5 glove sensor
+                  channels to arm joint commands with low latency.</li>
+                <li>Integrated a custom PCB with the glove, interfacing sensors over I2C and UART.</li>
+                <li>Set up a ROS&nbsp;2 Humble arm simulation in NVIDIA Isaac Sim (URDF) for validation.</li>
+                <li>Extended the glove into a VR input device, using an attached Meta VR controller for spatial
+                  tracking and the glove for click inputs.</li>
+              </ul>
+              <ul class="tags" aria-label="Technologies">
+                <li>C++</li>
+                <li>ESP32-C6</li>
+                <li>ROS 2 Humble</li>
+                <li>Isaac Sim</li>
+                <li>URDF</li>
+                <li>I2C / UART</li>
+              </ul>
+            </div>
+          </li>
 
-      <div class="projects__grid">
-
-        <!-- Project Card 1 -->
-        <article class="project-card">
-          <div class="project-card__header">
-            <span class="mono dim">REF#001 // PERCEPTION</span>
-            <span class="status status--inprogress">ONGOING</span>
-          </div>
-          <h3 class="project-card__title">Real-Time Monocular Bird's-Eye View (BEV) Navigation</h3>
-          <p class="project-card__desc">
-            Built an end-to-end perception pipeline that transforms live monocular camera streams from a mobile robot
-            into a real-time semantic Bird's-Eye-View (BEV) map for indoor navigation. The system combines monocular
-            depth estimation, semantic segmentation, 3D geometric projection, and semantic occupancy mapping to generate
-            an environment-aware top-down representation that supports autonomous navigation and obstacle avoidance
-            without requiring LiDAR or RGB-D sensors.
-          </p>
-          <div class="project-card__stack">
-            <span class="tag tag--mono">ROS2</span>
-            <span class="tag tag--mono">OpenCV</span>
-            <span class="tag tag--mono">PyTorch</span>
-            <span class="tag tag--mono">Depth Anything V2</span>
-            <span class="tag tag--mono">SegFormer</span>
-            <span class="tag tag--mono">PCL</span>
-            <span class="tag tag--mono">TensorRT</span>
-            <span class="tag tag--mono">RViz2</span>
-            <span class="tag tag--mono">Nav2</span>
-            <span class="tag tag--mono">C++</span>
-          </div>
-          <div class="project-card__links">
-            <a href="#" class="project-link mono">GITHUB_REPO</a>
-            <a href="#" class="project-link mono">VIEW_DEMO</a>
-            <a href="#" class="project-link mono">DOCS</a>
-          </div>
-        </article>
-
-        <!-- Project Card 2 -->
-        <article class="project-card">
-          <div class="project-card__header">
-            <span class="mono dim">REF#002 // SPATIAL_MEMORY</span>
-            <span class="status status--complete">COMPLETE</span>
-          </div>
-          <h3 class="project-card__title">Stateful ROS 2 Perception System</h3>
-          <p class="project-card__desc">
-            A decoupled ROS 2 architecture that upgrades standard object detection into a persistent, queryable spatial
-            memory system. Built with Python and YOLOv8, this pipeline uses ByteTrack to track unique object instances
-            across frames and stores their spatial coordinates in an auto-pruning SQLite database. Operators can
-            interact with the robot's memory via a custom terminal CLI to ask questions like, "Where did you last see
-            the bottle?"
-          </p>
-          <div class="project-card__stack">
-            <span class="tag tag--mono">ROS 2</span>
-            <span class="tag tag--mono">Python</span>
-            <span class="tag tag--mono">YOLOv8</span>
-            <span class="tag tag--mono">ByteTrack</span>
-            <span class="tag tag--mono">SQLite</span>
-            <span class="tag tag--mono">OpenCV</span>
-          </div>
-          <div class="project-card__links">
-            <a href="https://github.com/dinesh1160/semantic_memory_ros2" class="project-link mono">GITHUB_REPO</a>
-          </div>
-        </article>
-
-        <!-- Project Card 3 -->
-        <article class="project-card">
-          <div class="project-card__header">
-            <span class="mono dim">REF#003 // AI_AGENTS</span>
-            <span class="status status--complete">COMPLETE</span>
-          </div>
-          <h3 class="project-card__title">GitHub Intelligence Agent</h3>
-          <p class="project-card__desc">
-            An advanced AI workflow automation system that bridges the live GitHub REST API to large language models
-            using the Model Context Protocol (MCP). It utilizes LangGraph multi-agent orchestration to dynamically route
-            user intents for issue triage and repository analysis, enforcing Human-in-the-Loop (HITL) guardrails for
-            secure execution. This system streamlines operational complexity and allows external systems to discover its
-            capabilities via Agent-to-Agent (A2A) cards without exposing internal architecture.
-          </p>
-          <div class="project-card__stack">
-            <span class="tag tag--mono">MCP</span>
-            <span class="tag tag--mono">LangGraph</span>
-            <span class="tag tag--mono">Python</span>
-            <span class="tag tag--mono">Ollama</span>
-            <span class="tag tag--mono">GitHub REST API</span>
-            <span class="tag tag--mono">FastAPI</span>
-            <span class="tag tag--mono">Pydantic</span>
-          </div>
-          <div class="project-card__links">
-            <a href="https://github.com/dinesh1160/github_intelligence_agent" class="project-link mono">GITHUB_REPO</a>
-          </div>
-        </article>
-
-        <!-- Project Card 4 -->
-        <article class="project-card">
-          <div class="project-card__header">
-            <span class="mono dim">REF#004 // PATENT</span>
-            <span class="status status--complete">COMPLETE</span>
-          </div>
-          <h3 class="project-card__title">Proximity-Activated Audio Product Labels</h3>
-          <p class="project-card__desc">
-            This patent-pending accessibility system provides visually impaired users with hands-free audio
-            announcements about retail products, completely eliminating the need for smartphone apps or physical barcode
-            scanning. By leveraging Wi-Fi beacon proximity detection and RSSI threshold algorithms, the device
-            accurately triggers real-time, synchronized audio and visual information when a user enters a 1–2 meter
-            range. This creates a more independent, accessible, and seamless shopping experience without relying on
-            traditional visual cues.
-          </p>
-          <div class="project-card__stack">
-            <span class="tag tag--mono">ESP32 & FreeRTOS</span>
-            <span class="tag tag--mono">Hardware Integration (I2C OLED, DAC, LM386)</span>
-            <span class="tag tag--mono">Wi-Fi Proximity Detection & RSSI Algorithms</span>
-          </div>
-        </article>
-
-        <!-- Project Card 5 -->
-        <article class="project-card">
-          <div class="project-card__header">
-            <span class="mono dim">REF#005 // SECURITY</span>
-            <span class="status status--complete">COMPLETE</span>
-          </div>
-          <h3 class="project-card__title">Zero-Trust Encrypted File Sharing System</h3>
-          <p class="project-card__desc">
-            This Zero Trust file-sharing system ensures absolute data privacy by enforcing strict client-side hybrid
-            encryption (AES-GCM and X25519) so the backend infrastructure acts merely as an untrusted registry.
-            Utilizing a robust cryptographic identity pipeline with SHA-256 hashes and Ed25519 signatures, the system
-            enables secure, multi-user sharing. It guarantees that the server never has access to plaintext data or
-            private keys, providing true end-to-end security without reliance on backend trust.
-          </p>
-          <div class="project-card__stack">
-            <span class="tag tag--mono">React & Go (Gin)</span>
-            <span class="tag tag--mono">libsodium</span>
-            <span class="tag tag--mono">SQLite</span>
-          </div>
-          <div class="project-card__links">
-            <a href="https://github.com/dinesh1160/CipherShare" class="project-link mono">GITHUB_REPO</a>
-          </div>
-        </article>
-
+          <li class="timeline__item">
+            <p class="timeline__date mono">Jul 2023 – May 2027</p>
+            <div class="timeline__body card">
+              <h3 class="timeline__title">B.Tech, Computer Science Engineering</h3>
+              <p class="timeline__org">Vellore Institute of Technology · Chennai <span class="muted">· Specialization in
+                  AI &amp; Robotics</span></p>
+              <p class="timeline__note">CGPA 8.8 / 10 · Coursework: robot kinematics &amp; dynamics, control theory,
+                robotics perception, machine learning, linear algebra &amp; multivariable calculus.</p>
+            </div>
+          </li>
+        </ol>
       </div>
     </section>
 
+    <!-- ── Projects ─────────────────────────────────────────────── -->
+    <section class="section" id="projects">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow mono">03 · Projects</p>
+          <h2 class="section__title">Selected projects</h2>
+        </header>
 
+        <!-- Featured: BEVNav -->
+        <article class="card project project--featured">
+          <figure class="project__media">
+            <img src="assets/img/bevnav-sim.png" width="1908" height="1051" loading="lazy"
+              alt="BEVNav running in simulation: Gazebo warehouse on the left, RViz with camera view, live BEV view and the global map on the right." />
+            <figcaption class="mono">Gazebo (left) and RViz: camera, live BEV view and the global map being built.
+            </figcaption>
+          </figure>
 
+          <div class="project__body">
+            <p class="project__kicker mono"><span>01</span> Featured · Simulation</p>
+            <h3 class="project__title">BEVNav: camera-only indoor navigation</h3>
+            <p class="project__summary">
+              A ROS&nbsp;2 navigation stack for a ground rover with one RGB camera on a pan joint and no range sensor.
+              Each camera image becomes a bird's-eye-view occupancy grid that the rover plans and drives on, and keeps
+              as a map of the space it has explored.
+            </p>
+            <ul class="bullets">
+              <li>Six-heading pan scan fused in log-odds into a 360° grid; every view feeds a persistent 50&nbsp;×&nbsp;50&nbsp;m
+                map.</li>
+              <li>Cost map, greedy planner and 20&nbsp;Hz pure-pursuit controller, with shortest-route sub-goals so the
+                rover can back out of dead ends.</li>
+              <li>Optional SegFormer-B0 floor segmentation, fine-tuned on data collected in simulation.</li>
+            </ul>
 
-    <!-- ═══════════════════════════════════════════════
-           SKILLS
-      ═══════════════════════════════════════════════ -->
+            <dl class="metrics">
+              <div class="metric">
+                <dt class="mono">BEV per frame</dt>
+                <dd>6.1&nbsp;ms</dd>
+              </div>
+              <div class="metric">
+                <dt class="mono">Floor mapped</dt>
+                <dd>92.6%</dd>
+              </div>
+              <div class="metric">
+                <dt class="mono">Waypoints</dt>
+                <dd>9/9</dd>
+              </div>
+              <div class="metric">
+                <dt class="mono">360° scan</dt>
+                <dd>3.3&nbsp;s</dd>
+              </div>
+            </dl>
+
+            <ul class="tags" aria-label="Technologies">
+              <li>ROS 2 Jazzy</li>
+              <li>Gazebo Harmonic</li>
+              <li>Python</li>
+              <li>NumPy</li>
+              <li>OpenCV</li>
+              <li>SegFormer</li>
+              <li>EKF</li>
+            </ul>
+            <div class="project__links">
+              <a href="https://github.com/dinesh1160/bevnav" target="_blank" rel="noopener" class="link-arrow">GitHub</a>
+              <a href="https://github.com/dinesh1160/bevnav#results-simulation-ekf-pose" target="_blank" rel="noopener"
+                class="link-arrow">Results</a>
+            </div>
+          </div>
+        </article>
+
+        <div class="project-grid">
+
+          <!-- LabKeeper -->
+          <article class="card project">
+            <p class="project__kicker mono"><span>02</span> Real robot · BeetleBot</p>
+            <h3 class="project__title">LabKeeper: spatio-temporal memory assistant</h3>
+            <p class="project__summary">
+              A patrol robot that observes lab zones, remembers what it saw and where, and reports what changed
+              between patrols.
+            </p>
+            <ol class="pipeline mono" aria-label="Pipeline">
+              <li>Patrol</li>
+              <li>Quality gate</li>
+              <li>VLM scene parse</li>
+              <li>Memory</li>
+              <li>Change detect</li>
+            </ol>
+            <ul class="bullets">
+              <li>Teach-and-repeat patrol on ROS&nbsp;2 Jazzy using gyro turns and wheel odometry, chosen because EKF
+                drift ruled out map-frame goals.</li>
+              <li>Observes each zone from about 3&nbsp;m to suit a 20–25&nbsp;cm-high camera, storing pose, time and
+                photo per viewpoint.</li>
+              <li>Answers questions such as "What changed since this morning?" from a web dashboard.</li>
+            </ul>
+            <ul class="tags" aria-label="Technologies">
+              <li>ROS 2 Jazzy</li>
+              <li>Python</li>
+              <li>YOLOv8n</li>
+              <li>Gemini VLM</li>
+              <li>OpenCV</li>
+            </ul>
+            <div class="project__links">
+              <a href="https://github.com/dinesh1160/autonomous-spatio-temporal-memory-assistant" target="_blank"
+                rel="noopener" class="link-arrow">GitHub</a>
+            </div>
+          </article>
+
+          <!-- Active perception -->
+          <article class="card project">
+            <p class="project__kicker mono"><span>03</span> Real robot · Raspberry Pi</p>
+            <h3 class="project__title">Active perception for a mobile robot</h3>
+            <p class="project__summary">
+              A rover that judges the quality of its own camera view, works out why it is poor, and moves to fix it.
+            </p>
+            <ol class="pipeline mono" aria-label="Pipeline">
+              <li>Camera</li>
+              <li>YOLOv8</li>
+              <li>View score</li>
+              <li>Corrective move</li>
+              <li>Re-score</li>
+            </ol>
+            <ul class="bullets">
+              <li>Scores sharpness, lighting, framing and occlusion with noise-, exposure- and scale-robust OpenCV
+                metrics, and flags the weakest factor.</li>
+              <li>Closed-loop decision layer picks a corrective move and re-scores; after a fixed number of attempts it
+                returns to the best view seen.</li>
+              <li>Calls a vision-language model for occlusion and framing only after a fast local check passes.</li>
+            </ul>
+            <ul class="tags" aria-label="Technologies">
+              <li>ROS 2</li>
+              <li>Python</li>
+              <li>YOLOv8</li>
+              <li>OpenCV</li>
+              <li>VLM</li>
+            </ul>
+            <div class="project__links">
+              <a href="https://github.com/dinesh1160/ros2_active_perception" target="_blank" rel="noopener"
+                class="link-arrow">GitHub</a>
+            </div>
+          </article>
+
+          <!-- Semantic memory -->
+          <article class="card project">
+            <p class="project__kicker mono"><span>04</span> ROS 2 Humble</p>
+            <h3 class="project__title">Stateful ROS&nbsp;2 perception system</h3>
+            <p class="project__summary">
+              Gives an object detector a memory: a persistent, queryable record of what the robot saw and where.
+            </p>
+            <ol class="pipeline mono" aria-label="Pipeline">
+              <li>Camera</li>
+              <li>YOLOv8 + ByteTrack</li>
+              <li>SQLite memory</li>
+              <li>Query CLI</li>
+            </ol>
+            <ul class="bullets">
+              <li>Tracks 25+ object instances at a time with persistent IDs, so <code>bottle_1</code> and
+                <code>bottle_2</code> stay distinct.</li>
+              <li>Custom ROS&nbsp;2 messages and services isolate high-rate inference from database I/O; objects unseen
+                for 10 minutes are pruned.</li>
+              <li>Operators ask "Where did you last see the bottle?" from a command-line client.</li>
+            </ul>
+            <ul class="tags" aria-label="Technologies">
+              <li>ROS 2</li>
+              <li>Python</li>
+              <li>C++</li>
+              <li>YOLOv8</li>
+              <li>ByteTrack</li>
+              <li>SQLite</li>
+            </ul>
+            <div class="project__links">
+              <a href="https://github.com/dinesh1160/semantic_memory_ros2" target="_blank" rel="noopener"
+                class="link-arrow">GitHub</a>
+            </div>
+          </article>
+
+          <!-- Audio product labels -->
+          <article class="card project">
+            <p class="project__kicker mono"><span>05</span> Embedded · Patent pending</p>
+            <h3 class="project__title">Proximity-activated audio product labels</h3>
+            <p class="project__summary">
+              Hands-free audio announcements of retail products for visually impaired shoppers, with no smartphone app
+              or barcode scanning.
+            </p>
+            <ol class="pipeline mono" aria-label="Pipeline">
+              <li>Wi-Fi beacon</li>
+              <li>RSSI threshold</li>
+              <li>Trigger</li>
+              <li>Audio + OLED</li>
+            </ol>
+            <ul class="bullets">
+              <li>ESP32 firmware on FreeRTOS detects a shopper within 1–2&nbsp;m using Wi-Fi beacon proximity and RSSI
+                threshold algorithms.</li>
+              <li>Triggers synchronized audio (DAC and LM386 amplifier) and visual output on an I2C OLED in real time.
+              </li>
+            </ul>
+            <ul class="tags" aria-label="Technologies">
+              <li>ESP32</li>
+              <li>FreeRTOS</li>
+              <li>I2C OLED</li>
+              <li>DAC</li>
+              <li>LM386</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Skills ───────────────────────────────────────────────── -->
     <section class="section" id="skills">
-      <div class="section__header">
-        <div class="section__heading-wrap">
-          <div class="section__big-label" aria-hidden="true">SKILLS</div>
-        </div>
-      </div>
-      <div class="skills-layout" style="display: flex; flex-direction: column; gap: 40px; padding: 24px 0;">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow mono">04 · Skills</p>
+          <h2 class="section__title">Toolkit</h2>
+        </header>
 
-        <div class="skills-row" style="display: flex; flex-wrap: wrap; gap: 32px;">
-          <div class="skills-row__category mono dim"
-            style="width: 220px; flex-shrink: 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 6px;">
-            Programming Languages
-          </div>
-          <div class="tag-cloud" style="flex: 1; min-width: 300px;">
-            <span class="tag tag--solid">C/C++</span>
-            <span class="tag tag--solid">PYTHON</span>
-            <span class="tag tag--solid">GO</span>
-            <span class="tag tag--solid">JAVASCRIPT</span>
-            <span class="tag tag--solid">SQL</span>
-            <span class="tag tag--solid">C#</span>
-          </div>
-        </div>
+        <div class="skills">
+          <section class="card skill-group">
+            <h3 class="skill-group__title mono">Robotics &amp; simulation</h3>
+            <ul class="tags">
+              <li>ROS 2</li>
+              <li>Nav2</li>
+              <li>MoveIt2</li>
+              <li>micro-ROS</li>
+              <li>SLAM</li>
+              <li>Gazebo</li>
+              <li>NVIDIA Isaac Sim</li>
+              <li>MuJoCo</li>
+              <li>RViz</li>
+            </ul>
+          </section>
 
-        <div class="skills-row" style="display: flex; flex-wrap: wrap; gap: 32px;">
-          <div class="skills-row__category mono dim"
-            style="width: 220px; flex-shrink: 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 6px;">
-            AI & Robotics
-          </div>
-          <div class="tag-cloud" style="flex: 1; min-width: 300px;">
-            <span class="tag tag--solid">OPENCV</span>
-            <span class="tag tag--solid">ROS 2</span>
-            <span class="tag tag--solid">NVIDIA ISAAC SIM</span>
-            <span class="tag tag--solid">GAZEBO</span>
-            <span class="tag tag--solid">YOLO</span>
-            <span class="tag tag--solid">TENSORRT</span>
-            <span class="tag tag--solid">RVIZ2</span>
-            <span class="tag tag--solid">MOVEIT2</span>
-            <span class="tag tag--solid">CAMERA CALIBRATION</span>
-            <span class="tag tag--solid">POSE ESTIMATION</span>
-            <span class="tag tag--solid">DEPTH ANYTHING V2</span>
-            <span class="tag tag--solid">SEGFORMER</span>
-            <span class="tag tag--solid">PCL</span>
-          </div>
-        </div>
+          <section class="card skill-group">
+            <h3 class="skill-group__title mono">Perception</h3>
+            <ul class="tags">
+              <li>OpenCV</li>
+              <li>YOLO</li>
+              <li>ByteTrack</li>
+              <li>SegFormer</li>
+              <li>TensorRT</li>
+              <li>Vision-language models</li>
+            </ul>
+          </section>
 
-        <div class="skills-row" style="display: flex; flex-wrap: wrap; gap: 32px;">
-          <div class="skills-row__category mono dim"
-            style="width: 220px; flex-shrink: 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 6px;">
-            Software & Backend
-          </div>
-          <div class="tag-cloud" style="flex: 1; min-width: 300px;">
-            <span class="tag tag--solid">OOP</span>
-            <span class="tag tag--solid">DSA</span>
-            <span class="tag tag--solid">REST APIS</span>
-            <span class="tag tag--solid">FLASK</span>
-            <span class="tag tag--solid">NODE.JS</span>
-            <span class="tag tag--solid">NEXT.JS</span>
-            <span class="tag tag--solid">API INTEGRATION</span>
-            <span class="tag tag--solid">MULTITHREADING</span>
-          </div>
-        </div>
+          <section class="card skill-group">
+            <h3 class="skill-group__title mono">Embedded &amp; firmware</h3>
+            <ul class="tags">
+              <li>ESP32</li>
+              <li>Arduino</li>
+              <li>Raspberry Pi</li>
+              <li>FreeRTOS</li>
+              <li>I2C</li>
+              <li>UART</li>
+              <li>PWM control</li>
+              <li>IMU</li>
+              <li>Encoders</li>
+              <li>Flex sensors</li>
+              <li>LiDAR</li>
+              <li>Custom PCB integration</li>
+              <li>KiCad</li>
+            </ul>
+          </section>
 
-        <div class="skills-row" style="display: flex; flex-wrap: wrap; gap: 32px;">
-          <div class="skills-row__category mono dim"
-            style="width: 220px; flex-shrink: 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 6px;">
-            AI Frameworks
-          </div>
-          <div class="tag-cloud" style="flex: 1; min-width: 300px;">
-            <span class="tag tag--solid">LANGGRAPH</span>
-            <span class="tag tag--solid">MCP</span>
-            <span class="tag tag--solid">LLMS</span>
-            <span class="tag tag--solid">RAG</span>
-          </div>
+          <section class="card skill-group">
+            <h3 class="skill-group__title mono">Languages &amp; tools</h3>
+            <ul class="tags">
+              <li>C++</li>
+              <li>Python</li>
+              <li>C</li>
+              <li>SQL</li>
+              <li>Go</li>
+              <li>C#</li>
+              <li>Linux</li>
+              <li>Git</li>
+              <li>Docker</li>
+              <li>CMake</li>
+              <li>SQLite</li>
+            </ul>
+          </section>
         </div>
-
-        <div class="skills-row" style="display: flex; flex-wrap: wrap; gap: 32px;">
-          <div class="skills-row__category mono dim"
-            style="width: 220px; flex-shrink: 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 6px;">
-            Developer Tools
-          </div>
-          <div class="tag-cloud" style="flex: 1; min-width: 300px;">
-            <span class="tag tag--solid">GIT</span>
-            <span class="tag tag--solid">GITHUB</span>
-            <span class="tag tag--solid">LINUX</span>
-            <span class="tag tag--solid">DOCKER</span>
-            <span class="tag tag--solid">CMAKE</span>
-            <span class="tag tag--solid">JIRA</span>
-            <span class="tag tag--solid">CONFLUENCE</span>
-            <span class="tag tag--solid">TRELLO</span>
-            <span class="tag tag--solid">VERCEL</span>
-          </div>
-        </div>
-
-        <div class="skills-row" style="display: flex; flex-wrap: wrap; gap: 32px;">
-          <div class="skills-row__category mono dim"
-            style="width: 220px; flex-shrink: 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 6px;">
-            Game Engines
-          </div>
-          <div class="tag-cloud" style="flex: 1; min-width: 300px;">
-            <span class="tag tag--solid">UNITY</span>
-            <span class="tag tag--solid">UNREAL ENGINE</span>
-            <span class="tag tag--solid">GODOT</span>
-          </div>
-        </div>
-
-        <div class="skills-row" style="display: flex; flex-wrap: wrap; gap: 32px;">
-          <div class="skills-row__category mono dim"
-            style="width: 220px; flex-shrink: 0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 6px;">
-            Relevant Coursework
-          </div>
-          <div class="tag-cloud" style="flex: 1; min-width: 300px;">
-            <span class="tag tag--solid">ROBOT KINEMATICS & DYNAMICS</span>
-            <span class="tag tag--solid">CONTROL THEORY</span>
-            <span class="tag tag--solid">ROBOTICS PERCEPTION</span>
-            <span class="tag tag--solid">ARTIFICIAL INTELLIGENCE</span>
-            <span class="tag tag--solid">MACHINE LEARNING</span>
-            <span class="tag tag--solid">LINEAR ALGEBRA & MULTIVARIABLE CALCULUS</span>
-            <span class="tag tag--solid">ROBOT PROCESS AUTOMATION (RPA)</span>
-          </div>
-        </div>
-
       </div>
     </section>
 
-
-    <!-- ═══════════════════════════════════════════════
-           CERTIFICATIONS
-      ═══════════════════════════════════════════════ -->
-    <section class="section" id="certifications">
-      <div class="section__header">
-        <div class="section__heading-wrap">
-          <div class="section__big-label" aria-hidden="true">CERTIFICATIONS</div>
-        </div>
-      </div>
-
-      <div class="certs__grid">
-
-        <!-- Cert Card 1 -->
-        <article class="cert-card panel">
-          <div class="cert-card__header">
-            <span class="mono dim">CERT_001 // AGENTIC AI</span>
-            <span class="cert-card__badge mono">VERIFIED</span>
-          </div>
-          <h3 class="cert-card__title">IBM Agentic AI</h3>
-          <table class="data-table">
-            <tr>
-              <td class="mono dim">ISSUER</td>
-              <td>IBM</td>
-            </tr>
-          </table>
-          <div class="cert-card__footer">
-            <a href="https://courses.ibmcep.cognitiveclass.ai/certificates/d62cbc5eadee430f8d40c2d1bb803c7e"
-              target="_blank" rel="noopener" class="project-link mono">VERIFY_CREDENTIAL ↗</a>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-
-    <!-- ═══════════════════════════════════════════════
-           CONTACT
-      ═══════════════════════════════════════════════ -->
+    <!-- ── Contact ──────────────────────────────────────────────── -->
     <section class="section" id="contact">
-      <div class="section__header">
-        <div class="section__heading-wrap">
-          <div class="section__big-label" aria-hidden="true">CONTACT</div>
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow mono">05 · Contact</p>
+          <h2 class="section__title">Let's build something that moves.</h2>
+          <p class="section__lede">I'm looking for robotics software roles in perception, navigation or embedded
+            systems. Email is the fastest way to reach me.</p>
+        </header>
+
+        <div class="contact">
+          <a href="mailto:work.dinesh116@gmail.com" class="card contact__item">
+            <span class="contact__label mono">Email</span>
+            <span class="contact__value">work.dinesh116@gmail.com</span>
+          </a>
+          <a href="https://www.linkedin.com/in/dinesh1160" target="_blank" rel="noopener" class="card contact__item">
+            <span class="contact__label mono">LinkedIn</span>
+            <span class="contact__value">in/dinesh1160</span>
+          </a>
+          <a href="https://github.com/dinesh1160" target="_blank" rel="noopener" class="card contact__item">
+            <span class="contact__label mono">GitHub</span>
+            <span class="contact__value">dinesh1160</span>
+          </a>
+          <a href="assets/Dinesh_Arunachalam_Resume.pdf" target="_blank" rel="noopener" class="card contact__item">
+            <span class="contact__label mono">Resume</span>
+            <span class="contact__value">PDF, 1 page</span>
+          </a>
         </div>
       </div>
-
-      <div class="contact__links">
-
-        <a href="https://www.linkedin.com/in/dinesh-a-0b7902293/" target="_blank" rel="noopener"
-          class="contact-card panel">
-          <div class="contact-card__meta">
-            <span class="mono dim">UPLINK_01 // PROFESSIONAL_NETWORK</span>
-            <span class="contact-card__arrow">↗</span>
-          </div>
-          <p class="panel__label mono">LINKEDIN</p>
-          <p class="contact-card__handle">dinesh-a-0b7902293</p>
-        </a>
-
-        <a href="https://github.com/dinesh1160" target="_blank" rel="noopener" class="contact-card panel">
-          <div class="contact-card__meta">
-            <span class="mono dim">UPLINK_02 // CODE_REPOSITORY</span>
-            <span class="contact-card__arrow">↗</span>
-          </div>
-          <p class="panel__label mono">GITHUB</p>
-          <p class="contact-card__handle">dinesh1160</p>
-        </a>
-
-        <a href="mailto:work.dinesh116@gmail.com" class="contact-card panel">
-          <div class="contact-card__meta">
-            <span class="mono dim">UPLINK_03 // DIRECT_COMMS</span>
-            <span class="contact-card__arrow">↗</span>
-          </div>
-          <p class="panel__label mono">EMAIL</p>
-          <p class="contact-card__handle">work.dinesh116@gmail.com</p>
-        </a>
-
-        <a href="assets/Dinesh_Arunachalam_Resume.pdf" target="_blank"
-          rel="noopener" class="contact-card panel">
-          <div class="contact-card__meta">
-            <span class="mono dim">UPLINK_04 // CURRICULUM_VITAE</span>
-            <span class="contact-card__arrow">↓</span>
-          </div>
-          <p class="panel__label mono">RESUME</p>
-          <p class="contact-card__handle">resume.pdf</p>
-        </a>
-
-      </div>
     </section>
-
-
 
   </main>
 
-
-  <!-- FOOTER -->
-  <footer class="footer" style="padding: 24px 5vw; border-top: 1px solid var(--bg-border);">
-
-    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 24px;">
-
-      <div>
-        <p class="mono dim"
-          style="margin-bottom: 4px; font-size: 0.65rem; letter-spacing: 0.05em; text-transform: uppercase;">MOTTO</p>
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <span
-            style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: #00d287;"></span>
-          <p style="margin: 0; font-size: 0.85rem; color: var(--text-primary);">Creating Things That Think, See, and
-            Solve.</p>
-        </div>
-      </div>
-
-      <div>
-        <p class="mono dim"
-          style="margin-bottom: 4px; font-size: 0.65rem; letter-spacing: 0.05em; text-transform: uppercase;">CONTACT</p>
-        <a href="mailto:work.dinesh116@gmail.com"
-          style="color: var(--text-primary); font-size: 0.85rem; text-decoration: none;">work.dinesh116@gmail.com</a>
-      </div>
-
-      <div>
-        <p class="mono dim"
-          style="margin-bottom: 4px; font-size: 0.65rem; letter-spacing: 0.05em; text-transform: uppercase;">LINKS</p>
-        <div style="display: flex; gap: 12px; font-size: 0.85rem; color: var(--text-primary); align-items: center;">
-          <a href="assets/Dinesh_Arunachalam_Resume.pdf" target="_blank"
-            rel="noopener" style="color: inherit; text-decoration: none;">Resume ↗</a>
-          <span style="color: var(--bg-border); font-size: 0.4rem;">●</span>
-          <a href="https://github.com/dinesh1160" target="_blank" rel="noopener"
-            style="color: inherit; text-decoration: none;">GitHub ↗</a>
-          <span style="color: var(--bg-border); font-size: 0.4rem;">●</span>
-          <a href="https://www.linkedin.com/in/dinesh-a-0b7902293/" target="_blank" rel="noopener"
-            style="color: inherit; text-decoration: none;">LinkedIn ↗</a>
-        </div>
-      </div>
-
+  <footer class="footer">
+    <div class="footer__inner container mono">
+      <span>© 2026 Dinesh Arunachalam</span>
+      <a href="#home" class="footer__top">Back to top ↑</a>
     </div>
-
-    <div style="margin-top: 16px; color: var(--text-dim); font-size: 0.7rem; display: flex; gap: 16px;">
-
-      <span>©2026 Dinesh Arunachalam</span>
-    </div>
-
   </footer>
+
   <script src="main.js"></script>
 </body>
 
