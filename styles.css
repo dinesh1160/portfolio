@@ -558,6 +558,8 @@ main { padding-top: var(--nav-h); }
 
 .timeline__org { color: var(--text-2); margin-top: -8px; }
 
+.timeline__note { color: var(--text-2); }
+
 .timeline__label {
   margin-bottom: -4px;
   color: var(--text-3);
