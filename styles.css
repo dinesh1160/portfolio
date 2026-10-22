@@ -116,6 +116,7 @@ code { font-family: var(--font-mono); font-size: 0.88em; }
 }
 
 .muted { color: var(--text-3); }
+.nowrap { white-space: nowrap; }
 
 /* ── Buttons & links ────────────────────────────────────────────── */
 .btn {
@@ -318,20 +319,7 @@ code { font-family: var(--font-mono); font-size: 0.88em; }
   margin-right: auto;
 }
 
-.nav__logo-mark {
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
-  background: var(--accent);
-  color: var(--on-accent);
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 700;
-}
-
-.nav__logo-text { font-weight: 700; font-size: 0.85rem; }
+.nav__logo-text { font-weight: 700; font-size: 0.95rem; letter-spacing: -0.01em; }
 
 .nav__links {
   display: flex;
@@ -547,6 +535,8 @@ main { padding-top: var(--nav-h); }
 
 .facts dd { margin-top: 4px; font-weight: 500; }
 
+.facts__row--wide { grid-column: 1 / -1; }
+
 /* ── Experience ─────────────────────────────────────────────────── */
 .timeline { display: grid; gap: 24px; }
 
@@ -568,7 +558,14 @@ main { padding-top: var(--nav-h); }
 
 .timeline__org { color: var(--text-2); margin-top: -8px; }
 
-.timeline__note { color: var(--text-2); }
+.timeline__label {
+  margin-bottom: -4px;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.68rem;
+}
+
 
 /* ── Projects ───────────────────────────────────────────────────── */
 .project {
@@ -630,6 +627,15 @@ main { padding-top: var(--nav-h); }
 
 .project__media { display: flex; flex-direction: column; gap: 10px; }
 
+/* Keep the media beside the text while a tall card scrolls past */
+.project--featured .project__media {
+  position: sticky;
+  top: calc(var(--nav-h) + 24px);
+  align-self: start;
+}
+
+.project--featured .project__links { margin-top: 0; }
+
 .project__media img {
   width: 100%;
   border: 1px solid var(--border);
@@ -638,9 +644,23 @@ main { padding-top: var(--nav-h); }
 
 .project__media figcaption { color: var(--text-3); font-size: 0.7rem; }
 
+/* Featured card with a portrait demo video */
+.project--video { grid-template-columns: minmax(0, 300px) minmax(0, 1fr); }
+
+.demo-video {
+  width: 100%;
+  aspect-ratio: 360 / 642;
+  height: auto;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #000;
+}
+
 .metrics {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
   border: 1px solid var(--border);
   border-radius: 8px;
   overflow: hidden;
@@ -750,6 +770,8 @@ main { padding-top: var(--nav-h); }
   .hero__inner { grid-template-columns: 1fr; gap: 56px; }
   .viewport { justify-self: start; max-width: 420px; }
   .project--featured { grid-template-columns: 1fr; }
+  .project--featured .project__media { position: static; }
+  .project--video .project__media { max-width: 300px; }
   .contact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -792,7 +814,7 @@ main { padding-top: var(--nav-h); }
   .facts,
   .contact { grid-template-columns: 1fr; }
 
-  .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .metrics { grid-auto-flow: row; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .metric:nth-child(3) { border-left: 0; }
   .metric:nth-child(n + 3) { border-top: 1px solid var(--border); }
 

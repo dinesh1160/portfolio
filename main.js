@@ -243,3 +243,18 @@ darkQuery.addEventListener('change', announceTheme);
     if (!document.hidden && onScreen) start(); else running = false;
   });
 })();
+
+/* ── Projects: play demo videos only while on screen ────────────── */
+(function () {
+  const videos = document.querySelectorAll('.demo-video');
+  if (!videos.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const videoObserver = new IntersectionObserver(entries => {
+    entries.forEach(({ target, isIntersecting }) => {
+      if (isIntersecting) target.play().catch(() => { /* autoplay blocked; controls remain */ });
+      else target.pause();
+    });
+  }, { threshold: 0.5 });
+
+  videos.forEach(video => videoObserver.observe(video));
+})();
